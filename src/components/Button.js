@@ -2,10 +2,7 @@ import React from 'react';
 
 const Button = ({ children, onClick }) => {
   return (
-    <button 
-      onClick={onClick} 
-      style={{ padding: '10px 20px', fontSize: '1em', cursor: 'pointer' }}
-    >
+    <button className="button" onClick={onClick}>
       {children}
     </button>
   );

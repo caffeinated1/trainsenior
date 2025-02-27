@@ -1,18 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // or 'next/link' if using Next.js
+import React, { useState } from 'react';
+import axios from 'axios'; // Ensure axios is installed
 
 const LandingPage = () => {
+  const [service, setService] = useState('');
+
+  const handleServiceChange = (event) => {
+    setService(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('/api/book-appointment', { serviceId: service });
+      console.log('Booking successful:', response.data);
+      // Implement UI feedback here, like showing a confirmation message
+    } catch (error) {
+      console.error('Error booking the appointment:', error);
+      // Handle errors, possibly by displaying an error message to the user
+    }
+  };
+
   return (
-    <div style={{ fontSize: '1.5em', color: '#333', padding: '20px' }}>
-      <h1>Welcome to Train Senior</h1>
-      <p>Your gateway to senior personal training services and easy video training.</p>
-      <nav>
-        <ul>
-          <li><Link to="/services">Our Services</Link></li>
-          <li><Link to="/booking">Book a Session</Link></li>
-          <li><Link to="/video-call">Start a Video Call</Link></li>
-        </ul>
-      </nav>
+    <div className="landing-page-container">
+      <form onSubmit={handleSubmit}>
+        <select id="service-select" value={service} onChange={handleServiceChange}>
+          <option value="">Select a service...</option>
+          <option value="personal-training">Personal Training</option>
+          <option value="nutrition-advice">Nutrition Advice</option>
+          <option value="wellness-coaching">Wellness Coaching</option>
+          <option value="rehabilitation-coaching">Rehabilitation Coaching</option>
+          <option value="mentalhealth-coaching">Mental Health Coaching</option>
+          <option value="online-training">Online Training</option>
+        </select>
+        <button type="submit">Book Consultation</button>
+      </form>
     </div>
   );
 };

@@ -1,16 +1,223 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset margins and padding */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
-  color: #333;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif; /* Set Lato as the font for all text */
+  font-weight: 900; /* Ensure all text is super bold */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: url('https://res.cloudinary.com/doiqcvmlp/image/upload/v1740601210/Screen_Shot_2025-02-26_at_3.19.44_PM_bnhie9.png') no-repeat center center fixed;
+  background-size: cover; /* Cover the entire page */
+  color: white; /* Updated text color */
+  font-size: 16px; /* Standard font size */
+  display: flex;
+  flex-direction: column; /* Stacks content vertically */
+  position: relative; /* Needed to position the pseudo-element */
+  opacity: 0.9;
+}
+
+/* Dark overlay */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to make it darker or lighter */
+  z-index: -1; /* Ensures the overlay is behind the content */
 }
 
 a {
+  color: #0056b3; /* Darker blue for links */
   text-decoration: none;
-  color: #007bff;
 }
 
 a:hover {
   text-decoration: underline;
-} 
+}
+
+/* Ensure consistent spacing and alignment */
+.header, .footer {
+  text-align: center;
+  padding: 24px; /* Slightly increased padding */
+  background-color: #f8f9fa; /* Light grey background */
+  font-size: 21px; /* Increased font size for better visibility */
+  background-image: none;
+}
+
+.button {
+  padding: 15px 30px; /* Increased padding for larger buttons */
+  background-color: #0044cc; /* Changed to a deep blue for better visibility */
+  color: white;
+  border: none;
+  border-radius: 6px; /* Slightly rounded corners */
+  cursor: pointer;
+  font-size: 24px; /* Increased font size for buttons */
+}
+
+.button:hover {
+  background-color: #002288; /* A darker shade of blue on hover */
+}
+
+/* Additional global styles */
+.header {
+  background-color: transparent;
+  color: white; /* Text color is set to white */
+  width: 100%;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 75px; /* Increased logo size */
+  font-weight: bold; /* Make the logo text bold */
+  color: #ffffff; /* Ensuring high contrast against the background */
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 24px; /* Increased gap */
+  padding: 0;
+  margin: 0;
+  font-size: 24px; /* Increased font size for navigation */
+}
+
+.header nav ul li a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main content area where service sections are displayed */
+.main-content {
+  padding: 24px; /* Increased padding */
+  text-align: center;
+  background-image: none;
+}
+
+/* Individual service section styling */
+.service-section {
+  margin: 12px; /* Slightly increased margin */
+  padding: 24px; /* Increased padding */
+  background-color: #ffffff; /* White background for sections */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Enhanced shadow for depth */
+  border-radius: 12px; /* Slightly more rounded corners */
+  text-align: left; /* Align text to the left */
+  font-size: 30px; /* Increased font size for service sections */
+  background-image: none;
+}
+
+@media (max-width: 768px) {
+  .header, .footer, .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer {
+    padding: 15px 10px; /* Consistent padding on mobile */
+    font-size: 18px; /* Readable font size on mobile */
+    text-align: center; /* Center text alignment */
+  }
+}
+
+/* Example for other CSS files */
+.any-other-class {
+  background-image: none;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.footer .footer-links {
+  display: flex;
+  justify-content: center; /* Center-align footer links */
+  flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+  gap: 10px; /* Add gaps for spacing between items */
+}
+
+@media (max-width: 768px) {
+  .footer .footer-links a {
+    font-size: 16px; /* Smaller font size for links */
+    padding: 5px; /* Smaller padding */
+  }
+}
+
+.content-wrap {
+  flex: 1; /* Allows this element to expand and fill available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background-color: transparent; /* Make navbar background transparent */
+  color: white; /* Set text color to white */
+  position: relative; /* Positioning relative to the landing page */
+  z-index: 1000; /* Ensure navbar is above the background image */
+}
+
+.quote-section {
+  font-size: 65px;
+  color: white;
+  position: relative;
+  text-align: center;
+  margin-top: -300px; /* Default margin for larger screens */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .quote-section {
+    margin-top: -450px; /* Adjusted margin for mobile screens */
+  }
+}
+
+.landing-page-container {
+  padding: 100px 20px;
+  margin-top: 350px; /* Adjust this value to move the container further down */
+  text-align: center;
+  flex: 1; /* This ensures the container takes up the remaining space */
+}
+
+/* Style for the dropdown menu */
+#service-select {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Adding slight transparency */
+  color: #333;
+  border-radius: 12px; /* More pronounced rounded corners */
+  border: 2px solid #ccc;
+}
+
+/* Style for the 'Book Consultation' button */
+button {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 30px;
+  background-color: #0044cc; /* Changed to a deep blue for better visibility */
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #002288; /* A darker shade of blue on hover */
+}
