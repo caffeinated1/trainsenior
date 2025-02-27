@@ -1,27 +1,56 @@
 /* Reset margins and padding */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif; /* Set Lato as the font for all text */
-  font-weight: 900; /* Ensure all text is super bold */
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-html, body {
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body, html {
   height: 100%;
   width: 100%;
-  background: url('https://res.cloudinary.com/doiqcvmlp/image/upload/v1740601210/Screen_Shot_2025-02-26_at_3.19.44_PM_bnhie9.png') no-repeat center center fixed;
-  background-size: cover; /* Cover the entire page */
-  color: white; /* Updated text color */
-  font-size: 16px; /* Standard font size */
-  display: flex;
-  flex-direction: column; /* Stacks content vertically */
-  position: relative; /* Needed to position the pseudo-element */
-  opacity: 0.9;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  background-color: #f5f5f5;
   overflow-x: hidden;
+}
+
+body {
+  background-image: url('../assets/senior-training.jpg'); /* Update this path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  line-height: 1.5;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Add this to your head section in index.html */
+/* 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+*/
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  .landing-page, .about-page {
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button, 
+  select,
+  .menu-link {
+    touch-action: manipulation;
+  }
 }
 
 /* Dark overlay */
@@ -339,9 +368,4 @@ button:hover {
 
 .retry-button:hover {
   background-color: #002288;
-}
-
-.app-container {
-  height: 100%;
-  width: 100%;
 }
