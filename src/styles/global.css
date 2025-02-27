@@ -1,15 +1,15 @@
 /* Reset margins and padding */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Lato', sans-serif; /* Set Lato as the font for all text */
   font-weight: 900; /* Ensure all text is super bold */
 }
 
 html, body {
-  width: 100%;
   height: 100%;
+  width: 100%;
   background: url('https://res.cloudinary.com/doiqcvmlp/image/upload/v1740601210/Screen_Shot_2025-02-26_at_3.19.44_PM_bnhie9.png') no-repeat center center fixed;
   background-size: cover; /* Cover the entire page */
   color: white; /* Updated text color */
@@ -18,6 +18,10 @@ html, body {
   flex-direction: column; /* Stacks content vertically */
   position: relative; /* Needed to position the pseudo-element */
   opacity: 0.9;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
 }
 
 /* Dark overlay */
@@ -106,6 +110,10 @@ a:hover {
   padding: 24px; /* Increased padding */
   text-align: center;
   background-image: none;
+  flex: 1;
+  padding-bottom: 2rem;
+  height: 100%;
+  width: 100%;
 }
 
 /* Individual service section styling */
@@ -174,11 +182,18 @@ a:hover {
 }
 
 .quote-section {
-  font-size: 65px;
-  color: white;
-  position: relative;
   text-align: center;
-  margin-top: -300px; /* Default margin for larger screens */
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 2rem 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  color: #1a4b8c;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  color: #1a4b8c;
 }
 
 /* Media query for mobile devices */
@@ -220,4 +235,113 @@ button {
 
 button:hover {
   background-color: #002288; /* A darker shade of blue on hover */
+}
+
+/* Add these styles to your global.css file */
+
+.auth-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.auth-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.auth-container p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.connect-button {
+  font-size: 20px;
+  padding: 12px 24px;
+  background-color: #0044cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.connect-button:hover {
+  background-color: #002288;
+}
+
+.callback-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.callback-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.callback-container p {
+  font-size: 18px;
+}
+
+.auth-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.connected-status {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.reconnect-button {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  color: #495057;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.reconnect-button:hover {
+  background-color: #e9ecef;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.retry-button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #0044cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.retry-button:hover {
+  background-color: #002288;
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
 }

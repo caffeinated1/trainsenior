@@ -1,19 +1,21 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
+import AboutPage from './pages/AboutPage';
 import './styles/global.css';
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <LandingPage />
-      <div className="quote-section">
-        Strength. Mobility. Longevity.
+    <Router>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          {/* Add a catch-all route that redirects to home */}
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 };
 
